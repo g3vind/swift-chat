@@ -2,9 +2,13 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const { chats } = require("./data/data");
+const connectDB = require("./config/db");
+
+dotenv.config(); // Load environment variables from .env file
+
+connectDB(); // Connect to MongoDB
 
 const app = express();
-dotenv.config();
 
 // Enable CORS for all routes
 app.use(cors());
@@ -28,5 +32,5 @@ app.get("/api/chat/:id", (req, res) => {
 
 // LISTEN
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}🚀`);
+  console.log(`listening on port ${PORT} 🚀`);
 });

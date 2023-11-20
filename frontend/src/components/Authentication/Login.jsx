@@ -4,6 +4,7 @@ import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { useState } from "react";
 import { Button } from "@chakra-ui/button";
 import { RiLoginBoxFill } from "react-icons/ri";
+import { FaUserClock } from "react-icons/fa";
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -42,6 +43,7 @@ function Login() {
           </InputRightElement>
         </InputGroup>
       </FormControl>
+      {/* LOGIN BUTTON */}
       <Button
         color="black"
         colorScheme="blue"
@@ -51,6 +53,21 @@ function Login() {
       >
         Login &nbsp;
         <RiLoginBoxFill />
+      </Button>
+      {/* GUEST USER CREDENTIALS */}
+      <Button
+        variant="solid"
+        color="black"
+        colorScheme="red"
+        width="100%"
+        style={{ marginTop: 15 }}
+        onClick={() => {
+          setEmail("guest@example.com");
+          setPassword("123456");
+        }}
+      >
+        Get Guest User Credentials &nbsp;
+        <FaUserClock />
       </Button>
     </VStack>
   );
