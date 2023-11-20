@@ -3,12 +3,15 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const { chats } = require("./data/data");
 const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config(); // Load environment variables from .env file
 
 connectDB(); // Connect to MongoDB
 
 const app = express();
+
+app.use(express.json()); // To accept JSON data
 
 // Enable CORS for all routes
 app.use(cors());
@@ -21,9 +24,7 @@ app.get("/", (req, res) => {
   res.send("<h1>API IS RUNNING</h1>");
 });
 
-app.get("/api/chat", (req, res) => {
-  res.send(chats);
-});
+app.use("/api/user", userRoutes);
 
 app.get("/api/chat/:id", (req, res) => {
   const singleChat = chats.find((c) => c._id === req.params.id);
@@ -32,5 +33,5 @@ app.get("/api/chat/:id", (req, res) => {
 
 // LISTEN
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT} 🚀`);
+  console.log(`SERVER STARTED ON PORT ${PORT} 🚀`);
 });

@@ -80,7 +80,7 @@ function Signup() {
         </InputGroup>
       </FormControl>
       {/* PROFILE PICTURE */}
-      <FormControl id="pic" isRequired>
+      <FormControl id="pic">
         <FormLabel>Upload Profile Picture</FormLabel>
         <Input
           type="file"
