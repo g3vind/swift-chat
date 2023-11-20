@@ -4,7 +4,7 @@ import HomePage from "./Pages/HomePage";
 import ChatPage from "./Pages/ChatPage";
 function App() {
   return (
-    <div>
+    <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/chats" element={<ChatPage />}></Route>
